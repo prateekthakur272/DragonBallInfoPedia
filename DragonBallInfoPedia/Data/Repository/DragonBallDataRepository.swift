@@ -9,7 +9,7 @@ import Foundation
 
 struct DragonBallDataRepository: DragonBallDataProtocol {
     
-    private let api = DragonBallApi(baseUrl: "https://api.dragonball.com")
+    private let api = DragonBallApi(baseUrl: "https://dragonball-api.com/api")
     
     func getPlanets(page: Int, limit: Int) async throws -> [DragonBallPlanet] {
         return (try await api.getPlanets(page: page, limit: limit)).items

@@ -16,6 +16,15 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        .task {
+            let repository = DragonBallDataRepository()
+            do{
+                let response = try await repository.getCharacters(page: 1, limit: 20)
+                print("\(response)")
+            }catch {
+                print("Error")
+            }
+        }
     }
 }
 
