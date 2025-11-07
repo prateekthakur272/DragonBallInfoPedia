@@ -12,8 +12,8 @@ import Combine
 final class CharacterViewModel : ObservableObject {
     
     @Published var characters: [DragonBallCharacter] = []
-    @Published var page: Int = 1
-    @Published var limit: Int = 20
+    @Published var currentPage: Int = 1
+    @Published var defaultLimit: Int = 20
     
     private let repository: DragonBallDataProtocol = DragonBallDataRepository()
     
@@ -26,7 +26,7 @@ final class CharacterViewModel : ObservableObject {
     }
     
     func nextPage() async {
-        page+=1
-        await getCharacters(page: page)
+        currentPage+=1
+        await getCharacters(page: currentPage)
     }
 }
